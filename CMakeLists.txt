@@ -10,6 +10,7 @@ set(XRN_BIN_NAME xrnUtil)
 set(XRN_CXX_VERSION 23)
 
 # dependencies
+set(XRN_PERSONAL_DEPENDENCIES) # include other xrn projects
 set(XRN_LIBS_REQUIRED)
 set(XRN_LIBRARIES_REQUIREMENTS) # find_package
 set(XRN_LIBRARIES_DEPENDENCY) # target_link_libraries
@@ -76,6 +77,10 @@ option(ENABLE_OUTPUT_DIR "Puts every ouput binaries in the '${XRN_OUTPUT_DIR}' d
 option(ENABLE_BINARY "Compile the main program as a binarry" ON)
 option(ENABLE_STATIC_LIBRARY "Compile the main program as a static library" OFF)
 option(ENABLE_SHARED_LIBRARY "Compile the main program as a shared library" OFF)
+
+
+
+
 
 
 
@@ -168,10 +173,6 @@ endif ()
 
 # generate sources list without the main
 list(REMOVE_ITEM XRN_SOURCES "${XRN_MAIN}")
-
-# includes
-include_directories(${XRN_SOURCES_DIR})
-include_directories(${XRN_EXTERNAL_DIR})
 
 
 

@@ -16,7 +16,7 @@ compiler=clang++
 buildDir=.build
 cxxVersion=23
 buildType=Release
-binary=${buildDir}/sources/xrnMeta
+binary=${buildDir}/sources/xrnUtil
 parallel=$(nproc)
 
 # -------------------------------------------------------------------------------------------------

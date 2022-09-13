@@ -17,46 +17,14 @@ set(FUZZ_RUNTIME 10 CACHE STRING "Number of seconds to run fuzz tests during cte
 
 
 # =========================================================================
-# find dependencies
-# =========================================================================
-
-# Boost specific
-# set(Boost_USE_STATIC_LIBS OFF)
-# set(Boost_USE_MULTITHREADED ON)
-# set(Boost_USE_STATIC_RUNTIME OFF)
-
-# packages
-# find_package(Boost 1.78.0 COMPONENTS)
-find_package(fmt REQUIRED)
-# find_package(Qt5 COMPONENTS Widgets REQUIRED)
-
-
-
-# =========================================================================
-# include dependencies
-# =========================================================================
-
-include_directories(
-    # ${Boost_INCLUDE_DIRS}
-    ${fmt_INCLUDE_DIRS}
-    # ${Qt5Core_INCLUDE_DIRS}
-    # ${Qt5Widgets_INCLUDE_DIRS}
-    # ${Qt5Qml_INCLUDE_DIRS}
-    # ${Qt5Quick_INCLUDE_DIRS}
-    # ${Qt5QuickControls2_INCLUDE_DIRS}
-)
-
-
-
-# =========================================================================
 # link dependencies
 # =========================================================================
 
 target_link_libraries(
     ${XRN_FUZZ_BIN}
     PRIVATE
-        project_options
-        project_warnings
+        ${XRN_BIN_NAME}_project_options
+        ${XRN_BIN_NAME}_project_warnings
         # ${Boost_LIBRARIES}
         fmt::fmt
         # Qt5::Widgets
