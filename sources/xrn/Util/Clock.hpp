@@ -22,7 +22,7 @@ namespace xrn::util {
 /// \code
 /// ::xrn::Clock clock;
 /// ...
-/// ::xrn::Time time1{ clock.getElapsedTime() };
+/// ::xrn::Time time1{ clock.getElapsed() };
 /// ...
 /// ::xrn::Time time2{ clock.restart() };
 /// \endcode
