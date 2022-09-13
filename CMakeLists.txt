@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 
 # project
 project(CMakeSandbox LANGUAGES CXX)
-set(XRN_${XRN_BIN_NAME}_BIN_NAME xrnMeta)
+set(XRN_${XRN_BIN_NAME}_BIN_NAME xrnUtil)
 set(XRN_CXX_VERSION 23)
 
 # dependencies
