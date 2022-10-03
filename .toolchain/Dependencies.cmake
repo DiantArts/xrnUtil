@@ -25,7 +25,7 @@ function(conan_config_set)
     endif()
 endfunction()
 
-macro(download_dependencies library_versions)
+macro(download_dependencies interface library_versions)
     # dependencies directory
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
     list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
@@ -51,6 +51,7 @@ macro(download_dependencies library_versions)
     conan_cmake_autodetect(settings)
     conan_cmake_install(
         PATH_OR_REFERENCE .
+        GENERATOR cmake
         BUILD missing
         SETTINGS ${settings}
     )
@@ -59,15 +60,16 @@ macro(download_dependencies library_versions)
     include(FetchContent)
 
     foreach(library_name IN LISTS XRN_PERSONAL_DEPENDENCIES)
+        MESSAGE(STATUS "Dowloading ${library_name}")
+        string(TOLOWER ${library_name} library_dirname)
         FetchContent_Declare(
-        library
-        GIT_REPOSITORY https://github.com/DiantArts/${library_name}
-        GIT_TAG        main
+            ${library_dirname}
+            GIT_REPOSITORY https://github.com/DiantArts/${library_name}
+            GIT_TAG        main
         )
-        FetchContent_MakeAvailable(library)
-        include_directories(${library_SOURCE_DIR}/sources/)
+        FetchContent_MakeAvailable(${library_dirname})
+        target_include_directories(${interface} INTERFACE ${${library_dirname}_SOURCE_DIR}/sources/)
     endforeach()
 
-    include_directories(${XRN_SOURCES_DIR})
-    include_directories(${XRN_EXTERNAL_DIR})
+    target_include_directories(${interface} INTERFACE ${XRN_SOURCES_DIR})
 endmacro()
