@@ -8,6 +8,7 @@
 #include <xrn/Util/Time.hpp>
 #include <xrn/Util/Id.hpp>
 #include <xrn/Util/OptionalReference.hpp>
+#include <xrn/Util/File.hpp>
 
 
 
