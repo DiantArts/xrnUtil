@@ -34,10 +34,10 @@ auto ::xrn::util::File::getContentAsVector(
     const ::std::string& filename
 ) -> ::std::vector<::std::string>
 {
-    std::string line;
-    std::vector<std::string> lines;
-    while (std::getline(lines, line)) {
-       myLines.push_back(line);
+    ::std::string line;
+    ::std::vector<std::string> lines;
+    while (::std::getline(lines, line)) {
+       lines.push_back(line);
     }
     return lines
 }
