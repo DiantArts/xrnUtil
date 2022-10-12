@@ -12,6 +12,8 @@
 auto main()
     -> int
 {
-    auto file{ ::xrn::File::getContent("sources/main.cpp") };
-    ::std::cout << file << ::std::endl;
+    auto file{ ::xrn::File::getContentAsVector("sources/main.cpp") };
+    for (auto& line : file) {
+        ::std::cout << line << ::std::endl;
+    }
 }
