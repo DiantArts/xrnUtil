@@ -25,3 +25,19 @@ auto ::xrn::util::File::getContent(
 
     return ::std::string{ str, size };
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// \brief Get the content of a file
+///
+///////////////////////////////////////////////////////////////////////////
+auto ::xrn::util::File::getContentAsVector(
+    const ::std::string& filename
+) -> ::std::vector<::std::string>
+{
+    std::string line;
+    std::vector<std::string> lines;
+    while (std::getline(lines, line)) {
+       myLines.push_back(line);
+    }
+    return lines
+}

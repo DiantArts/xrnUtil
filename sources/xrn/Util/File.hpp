@@ -57,6 +57,14 @@ public:
         const ::std::string& filename
     ) -> ::std::string;
 
+    ///////////////////////////////////////////////////////////////////////////
+    /// \brief Get the content of a file
+    ///
+    ///////////////////////////////////////////////////////////////////////////
+    [[ nodiscard ]] static inline auto getContentAsVector(
+        const ::std::string& filename
+    ) -> ::std::vector<::std::string>;
+
 
 
 private:
