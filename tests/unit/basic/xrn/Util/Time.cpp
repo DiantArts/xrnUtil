@@ -6,7 +6,7 @@ template class ::xrn::util::BasicTime<float>;
 
 using TestingTime = ::xrn::util::BasicTime<float>;
 
-TEST_CASE("Time.Basic01")
+TEST_CASE(" xrnUtil :: Time.Basic01")
 {
     const auto t1{ ::TestingTime::createAsSeconds(1) };
     const auto t2{ ::TestingTime::createAsMilliseconds(1000) };
@@ -31,7 +31,7 @@ TEST_CASE("Time.Basic01")
     REQUIRE(t1 == 1000.0f);
 }
 
-TEST_CASE("Time.Basic02")
+TEST_CASE(" xrnUtil :: Time.Basic02")
 {
     const auto t1{ ::TestingTime::createAsSeconds(1) };
     const auto t2{ ::TestingTime::createAsMilliseconds(1) };
@@ -45,7 +45,7 @@ TEST_CASE("Time.Basic02")
     REQUIRE(t4.getAsNanoseconds() == 1);
 }
 
-TEST_CASE("Time.Add01")
+TEST_CASE(" xrnUtil :: Time.Add01")
 {
     ::TestingTime t1;
 
@@ -74,7 +74,7 @@ TEST_CASE("Time.Add01")
     REQUIRE(t1.get() == 1000);
 }
 
-TEST_CASE("Time.Sub01")
+TEST_CASE(" xrnUtil :: Time.Sub01")
 {
     ::TestingTime t1;
 
@@ -103,7 +103,7 @@ TEST_CASE("Time.Sub01")
     REQUIRE(t1.get() == 1000);
 }
 
-TEST_CASE("Time.Mul01")
+TEST_CASE(" xrnUtil :: Time.Mul01")
 {
     ::TestingTime t1;
 
@@ -132,7 +132,7 @@ TEST_CASE("Time.Mul01")
     REQUIRE(t1.get() == 1000);
 }
 
-TEST_CASE("Time.Div01")
+TEST_CASE(" xrnUtil :: Time.Div01")
 {
     ::TestingTime t1;
 
@@ -161,7 +161,7 @@ TEST_CASE("Time.Div01")
     REQUIRE(t1.get() == 1000);
 }
 
-TEST_CASE("Time.Mod01")
+TEST_CASE(" xrnUtil :: Time.Mod01")
 {
     ::TestingTime t1;
 
@@ -190,7 +190,7 @@ TEST_CASE("Time.Mod01")
     REQUIRE(t1.get() == 1);
 }
 
-TEST_CASE("Time.litteral01")
+TEST_CASE(" xrnUtil :: Time.litteral01")
 {
     using namespace ::xrn::util::literal;
 

@@ -6,7 +6,7 @@ template class ::xrn::util::BasicClock<::xrn::Time>;
 
 using TestingClock = ::xrn::util::BasicClock<::xrn::Time>;
 
-TEST_CASE("Clock.Basic01")
+TEST_CASE(" xrnUtil :: Clock.Basic01")
 {
     ::TestingClock clock;
 
