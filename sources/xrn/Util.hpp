@@ -9,6 +9,7 @@
 #include <xrn/Util/Id.hpp>
 #include <xrn/Util/OptionalReference.hpp>
 #include <xrn/Util/File.hpp>
+#include <xrn/Util/Constraint.hpp>
 
 
 

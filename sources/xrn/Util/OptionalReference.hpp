@@ -1,8 +1,11 @@
 #pragma once
 
+// uses enable_if because concepts has a bug using clang++ with partial template specialization
 #define ENABLE_IF_CONST(Type) ::std::enable_if_t< \
         ::std::is_const_v<::std::remove_reference_t<::std::remove_pointer_t<Type>>> \
     >
+
+// uses enable_if because concepts has a bug using clang++ with partial template specialization
 #define ENABLE_IF_NOT_CONST(Type) ::std::enable_if_t< \
         !::std::is_const_v<::std::remove_reference_t<::std::remove_pointer_t<Type>>> \
     >
@@ -415,7 +418,7 @@ private:
 
 
 ///////////////////////////////////////////////////////////////////////////
-// ostream
+// ostream non-const
 ///////////////////////////////////////////////////////////////////////////
 template <
     typename T
@@ -428,6 +431,9 @@ template <
     return os;
 }
 
+///////////////////////////////////////////////////////////////////////////
+// ostream const
+///////////////////////////////////////////////////////////////////////////
 template <
     typename T
 > auto operator<<(
