@@ -155,6 +155,42 @@ template <
     return m_time * 1'000'000;
 }
 
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
+> constexpr auto ::xrn::util::BasicTime<T>::getAsChronoSeconds() const
+    -> ::std::chrono::duration<BasicTime::Type>
+{
+    return ::std::chrono::duration<BasicTime::Type, ::std::milli>{ m_time / 1'000 };
+}
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
+> constexpr auto ::xrn::util::BasicTime<T>::getAsChronoMilliseconds() const
+    -> ::std::chrono::duration<BasicTime::Type, ::std::milli>
+{
+    return ::std::chrono::duration<BasicTime::Type, ::std::milli>{ m_time };
+}
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
+> constexpr auto ::xrn::util::BasicTime<T>::getAsChronoMicroseconds() const
+    -> ::std::chrono::duration<BasicTime::Type, ::std::micro>
+{
+    return ::std::chrono::duration<BasicTime::Type, ::std::milli>{ m_time * 1'000 };
+}
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
+> constexpr auto ::xrn::util::BasicTime<T>::getAsChronoNanoseconds() const
+    -> ::std::chrono::duration<BasicTime::Type, ::std::nano>
+{
+    return ::std::chrono::duration<BasicTime::Type, ::std::milli>{ m_time * 1'000'000 };
+}
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////

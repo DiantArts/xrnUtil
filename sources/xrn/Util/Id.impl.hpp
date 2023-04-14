@@ -10,6 +10,11 @@
 ///////////////////////////////////////////////////////////////////////////
 template <
     typename T
+> constexpr ::xrn::util::BasicForwardId<T>::BasicForwardId() noexcept = default;
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
 > constexpr ::xrn::util::BasicForwardId<T>::BasicForwardId(
     auto value
 ) noexcept

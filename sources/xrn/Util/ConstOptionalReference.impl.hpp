@@ -64,6 +64,14 @@ template <
 ///////////////////////////////////////////////////////////////////////////
 template <
     typename T
+> constexpr ::xrn::util::OptionalReference<T, ENABLE_IF_CONST(T)>::operator bool() const
+{
+    return m_value;
+}
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
 > constexpr auto ::xrn::util::OptionalReference<T, ENABLE_IF_CONST(T)>::isEmpty() const
     -> bool
 {

@@ -256,6 +256,54 @@ public:
     [[ nodiscard ]] constexpr auto getAsNanoseconds() const
         -> BasicTime::Type;
 
+    ///////////////////////////////////////////////////////////////////////////
+    /// \brief Get the value as seconds
+    ///
+    /// \return Value as second as the internally stored type
+    ///
+    /// \see get(), getAsChronoMilliseconds(), getAsChronoMicroseconds(),
+    /// getAsChronoNanoseconds()
+    ///
+    ///////////////////////////////////////////////////////////////////////////
+    [[ nodiscard ]] constexpr auto getAsChronoSeconds() const
+        -> ::std::chrono::duration<BasicTime::Type>;
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// \brief Get the value as milliseconds
+    ///
+    /// \return Value as second as the internally stored type
+    ///
+    /// \see get(), getAsChronoSeconds(), getAsChronoMicroseconds(),
+    /// getAsChronoNanoseconds()
+    ///
+    ///////////////////////////////////////////////////////////////////////////
+    [[ nodiscard ]] constexpr auto getAsChronoMilliseconds() const
+        -> ::std::chrono::duration<BasicTime::Type, ::std::milli>;
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// \brief Get the value as milliseconds
+    ///
+    /// \return Value as second as the internally stored type
+    ///
+    /// \see get(), getAsChronoSeconds(), getAsChronoMilliseconds(),
+    /// getAsChronoNanoseconds()
+    ///
+    ///////////////////////////////////////////////////////////////////////////
+    [[ nodiscard ]] constexpr auto getAsChronoMicroseconds() const
+        -> ::std::chrono::duration<BasicTime::Type, ::std::micro>;
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// \brief Get the value as milliseconds
+    ///
+    /// \return Value as second as the internally stored type
+    ///
+    /// \see get(), getAsChronoSeconds(), getAsChronoMilliseconds(),
+    /// getAsChronoMicroseconds()
+    ///
+    ///////////////////////////////////////////////////////////////////////////
+    [[ nodiscard ]] constexpr auto getAsChronoNanoseconds() const
+        -> ::std::chrono::duration<BasicTime::Type, ::std::nano>;
+
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
