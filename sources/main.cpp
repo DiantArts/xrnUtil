@@ -11,14 +11,4 @@
 ///////////////////////////////////////////////////////////////////////////
 auto main()
     -> int
-{
-    // auto file{ ::xrn::File::getContentAsVector("sources/main.cpp") };
-    // for (auto& line : file) {
-        // ::std::cout << line << ::std::endl;
-    // }
-
-    ::xrn::Rng rng{ 0, 5 };
-    for (auto i{ 0uz }; i < 100; ++i) {
-        ::fmt::print("{}\n", rng.get(5, 10));
-    }
-}
+{}

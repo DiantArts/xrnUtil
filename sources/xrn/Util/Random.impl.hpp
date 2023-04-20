@@ -38,7 +38,7 @@ template <
 ///////////////////////////////////////////////////////////////////////////
 template <
     typename T
-> auto ::xrn::util::BasicRandomNumberGenerator<T>::get()
+> auto ::xrn::util::BasicRandomNumberGenerator<T>::generate()
     -> BasicRandomNumberGenerator::Type
 {
     return m_range(m_rng);
@@ -47,10 +47,30 @@ template <
 ///////////////////////////////////////////////////////////////////////////
 template <
     typename T
-> auto ::xrn::util::BasicRandomNumberGenerator<T>::get(
+> auto ::xrn::util::BasicRandomNumberGenerator<T>::generate(
     BasicRandomNumberGenerator::Type min
     , BasicRandomNumberGenerator::Type max
 ) -> BasicRandomNumberGenerator::Type
 {
     return ::std::uniform_int_distribution<BasicRandomNumberGenerator::Type>{ min, max }(m_rng);
+}
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
+> auto ::xrn::util::BasicRandomNumberGenerator<T>::operator()()
+    -> BasicRandomNumberGenerator::Type
+{
+    return this->generate();
+}
+
+///////////////////////////////////////////////////////////////////////////
+template <
+    typename T
+> auto ::xrn::util::BasicRandomNumberGenerator<T>::operator()(
+    BasicRandomNumberGenerator::Type min
+    , BasicRandomNumberGenerator::Type max
+) -> BasicRandomNumberGenerator::Type
+{
+    return this->generate(min, max);
 }
