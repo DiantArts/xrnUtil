@@ -134,7 +134,11 @@ private:
 ///////////////////////////////////////////////////////////////////////////
 // Template specialization
 ///////////////////////////////////////////////////////////////////////////
-namespace xrn::util { using RandomNumberGenerator = BasicRandomNumberGenerator<unsigned int>; }
+namespace xrn {
+    template <typename T> using BasicRandomNumberGenerator =
+        ::xrn::util::BasicRandomNumberGenerator<T>;
+}
+namespace xrn::util { using RandomNumberGenerator = BasicRandomNumberGenerator<int>; }
 namespace xrn { using RandomNumberGenerator = ::xrn::util::RandomNumberGenerator; }
 namespace xrn { using Rng = ::xrn::util::RandomNumberGenerator; }
 
