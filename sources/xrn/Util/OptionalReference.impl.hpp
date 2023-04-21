@@ -93,9 +93,7 @@ template <
 > auto ::xrn::util::OptionalReference<T, ENABLE_IF_NOT_CONST(T)>::get()
     -> T&
 {
-    if (!m_value) {
-        throw ::std::runtime_error{ "Accessing an empty OptionalReference" };
-    }
+    XRN_FATAL_SASSERT(m_value, "Accessing an empty OptionalReference")
     return *m_value;
 }
 
@@ -105,9 +103,7 @@ template <
 > auto ::xrn::util::OptionalReference<T, ENABLE_IF_NOT_CONST(T)>::get() const
     -> const T&
 {
-    if (!m_value) {
-        throw ::std::runtime_error{ "Accessing an empty OptionalReference" };
-    }
+    XRN_FATAL_SASSERT(m_value, "Accessing an empty OptionalReference")
     return *m_value;
 }
 
@@ -167,6 +163,7 @@ template <
 > auto ::xrn::util::OptionalReference<T, ENABLE_IF_NOT_CONST(T)>::operator->() noexcept
     -> T*
 {
+    XRN_FATAL_SASSERT(m_value, "Accessing an empty OptionalReference")
     return m_value;
 }
 
@@ -176,6 +173,7 @@ template <
 > auto ::xrn::util::OptionalReference<T, ENABLE_IF_NOT_CONST(T)>::operator->() const noexcept
     -> const T*
 {
+    XRN_FATAL_SASSERT(m_value, "Accessing an empty OptionalReference")
     return m_value;
 }
 
