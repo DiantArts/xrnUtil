@@ -93,7 +93,7 @@ template <
 > auto ::xrn::util::OptionalReference<T, ENABLE_IF_CONST(T)>::get() const
     -> const T&
 {
-    XRN_FATAL_SASSERT(m_value, "Accessing an empty ConstOptionalReference")
+    XRN_FATAL_SASSERT(m_value, "Accessing an empty ConstOptionalReference");
     return *m_value;
 }
 
@@ -128,7 +128,7 @@ template <
 > auto ::xrn::util::OptionalReference<T, ENABLE_IF_CONST(T)>::operator->() const noexcept
     -> const T*
 {
-    XRN_FATAL_SASSERT(m_value, "Accessing an empty ConstOptionalReference")
+    XRN_FATAL_SASSERT(m_value, "Accessing an empty ConstOptionalReference");
     return m_value;
 }
 

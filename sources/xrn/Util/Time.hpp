@@ -201,6 +201,17 @@ public:
     [[ nodiscard ]] constexpr operator BasicTime::Type() const noexcept;
 
     ///////////////////////////////////////////////////////////////////////////
+    /// \brief Convertion to the type internally stored
+    ///
+    /// \return Time in milliseconds
+    ///
+    /// \see get(), getAsMilliseconds()
+    ///
+    ///////////////////////////////////////////////////////////////////////////
+    [[ nodiscard ]] constexpr auto operator*() const noexcept
+        -> BasicTime::Type;
+
+    ///////////////////////////////////////////////////////////////////////////
     /// \brief Get the value as it's internally stored
     ///
     /// \return Time in milliseconds
@@ -552,7 +563,7 @@ public:
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////////////
-    /// \brief Multiplicates time as milliseconds given as parameter
+    /// \brief Multiply time as milliseconds given as parameter
     ///
     /// \param rhs Time to multiply in milliseconds
     ///
@@ -564,7 +575,7 @@ public:
     ) -> BasicTime&;
 
     ///////////////////////////////////////////////////////////////////////////
-    /// \brief Multiplicates time as milliseconds given as parameter
+    /// \brief Multiply time as milliseconds given as parameter
     ///
     /// Same as multiply, but does return a copy.
     ///
@@ -581,9 +592,9 @@ public:
         -> BasicTime;
 
     ///////////////////////////////////////////////////////////////////////////
-    /// \brief Multiplicates time as milliseconds given as parameter
+    /// \brief Multiply time as milliseconds given as parameter
     ///
-    /// Multiplicates the amount given as parameter.
+    /// Multiply the amount given as parameter.
     ///
     /// \param rhs Time to multiply in milliseconds
     ///
@@ -715,55 +726,6 @@ private:
 ///////////////////////////////////////////////////////////////////////////
 namespace xrn::util { using Time = ::xrn::util::BasicTime<float>; }
 namespace xrn { using Time = ::xrn::util::Time; }
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////
-// External types operators
-//
-///////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-/// \brief Adds ::xrn::util::BasicTime given as parameter
-///
-/// Same as add, but does return a copy.
-///
-/// \param lhs Template value to add to \a rhs
-/// \param rhs Time having its value being added by \a lhs
-///
-/// \return New time added with \a rhs
-///
-/// \see add()
-///
-///////////////////////////////////////////////////////////////////////////
-template <
-    typename T
-> [[ nodiscard ]] constexpr auto operator+(
-    const auto& lhs,
-    const ::xrn::util::BasicTime<T>& rhs
-) -> ::xrn::util::BasicTime<T>;
-
-///////////////////////////////////////////////////////////////////////////
-/// \brief Substracts ::xrn::util::BasicTime given as parameter
-///
-/// Same as substract, but does return a copy.
-///
-/// \param lhs Template value to add to \a rhs
-/// \param rhs Time having its value being added by \a lhs
-///
-/// \return New time added with \a rhs
-///
-/// \see sub()
-///
-///////////////////////////////////////////////////////////////////////////
-template <
-    typename T
-> [[ nodiscard ]] constexpr auto operator-(
-    const auto& lhs,
-    const ::xrn::util::BasicTime<T>& rhs
-) -> ::xrn::util::BasicTime<T>;
 
 
 
