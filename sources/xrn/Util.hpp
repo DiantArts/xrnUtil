@@ -11,6 +11,7 @@
 #include <xrn/Util/File.hpp>
 #include <xrn/Util/Constraint.hpp>
 #include <xrn/Util/Random.hpp>
+#include <xrn/Util/SyncedThreads.hpp>
 
 
 

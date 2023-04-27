@@ -1,6 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////
 // Precompilled headers
 ///////////////////////////////////////////////////////////////////////////
+#include <stdexcept>
+#include <thread>
 #include <pch.hpp>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -8,37 +10,30 @@
 ///////////////////////////////////////////////////////////////////////////
 #include <xrn/Util.hpp>
 
-template <
-    typename T
-    , bool hasChangedFlag = true
-> struct A
+void func(
+    ::std::chrono::duration<float> value
+    , int i
+)
 {
-    T& func()
-    {
-        return static_cast<T&>(*this);
-    }
-
-    template <
-        typename = ::std::enable_if_t<hasChangedFlag>
-    > void test()
-    {
-        ::fmt::print("{}\n", "testing");
-    }
-};
-
-struct B
-    : public ::A<B, true>
-{};
+    // ::fmt::print("\t -- worker {}: start\n", i);
+    // ::std::this_thread::sleep_for(value);
+    // ::fmt::print("\t -- worker {}: done\n", i);
+}
 
 ///////////////////////////////////////////////////////////////////////////
 auto main()
     -> int
 {
-    // for (auto i{ 0uz }; i < 100; ++i) {
-        // ::fmt::print("{}\n", ::xrn::rng(-10, 10));
-    // }
-    B b;
-    ::fmt::print("{}\n", (void*)&b);
-    ::fmt::print("{}\n", (void*)&b.func());
-    b.test();
+    ::xrn::SyncedThreads threads;
+    auto i{ 0 };
+    threads.push(func, 1000ms, i);
+    threads.push(func, 500ms, ++i);
+    ::std::this_thread::sleep_for(2000ms);
+
+    for (auto i{ 0uz }; true; ++i) {
+        threads.runOnce();
+        if (i > 10000) {
+            threads.terminate();
+        }
+    }
 }
